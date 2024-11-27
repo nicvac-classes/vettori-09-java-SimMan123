@@ -1,25 +1,46 @@
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
-
-//Import di Classi Java necessarie al funzionamento del programma
 import java.util.Scanner;
-
-// Classe principale, con metodo main
 class Esercizio {
-    // Il programma parte con una chiamata a main().
     public static void main(String args[])
     {
-        //Variabili del programma
-        String nome;
+      Scanner in = new Scanner (System.in);
+      int i,n;
+      System.out.prrint("inserire giri");
+      n=in.nextInt();
+      double h[]= new h[n];
+      double v[]= new v[n];
+      for (i=0;i<n;i++) {
+        h[i]=in.nextDouble();
+        v[i]=in.nextDouble();
+      }
+      double th,tv;
+      th=0;
+      tv=0;
+      for ( i=0;i<n;i++) {
+        th=th+h[i];
+        tv=tv+v[i];
+      }
+      if(th<tv){
+        System.out.print("il vincitore è hamilton") ;
+      } else {
+        System.out.print("il vincitore è verstappen") ;
+      }
+      double tminv, tminh;
+      tminv=0;
+      tminh=0;
+      for(i=0;i<n;i++) {
+        if ( h[i]<h[tminh]) {
+            tminh=i;
+        }
+        if (v[i]<v[tminv]) {
+            tminv=i;
+        }
+      } 
+      if ( tminh<tminv) {
+        System.out.println("tempo minimo hamilton");
+      }  else {
+        System.out.println("tempo minimo verstappen");
+      }
 
-        //Creo l'oggetto in per l'input da tastiera
-        Scanner in = new Scanner( System.in );
-
-        //Leggo l'input da tastiera
-        System.out.print("Inserisci il tuo nome: ");
-        nome = in.nextLine();
-
-        //Output del nome acquisito da tastiera
-        System.out.println("Ciao "+nome+"!");
     }
 }
 
